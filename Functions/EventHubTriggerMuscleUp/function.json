@@ -1,0 +1,14 @@
+{
+  "bindings": [
+    {
+      "type": "eventHubTrigger",
+      "name": "myEventHubMessage",
+      "direction": "in",
+      "path": "muscleup",
+      "connection": "muscleeh",
+      "consumerGroup": "$Default",
+      "cardinality": "many"
+    }
+  ],
+  "disabled": false
+}

@@ -1,0 +1,8 @@
+-- Power BI output
+SELECT * INTO OutVisual FROM sensor TIMESTAMP BY MeasuredTime
+-- Event Hub output
+SELECT IoTHub.ConnectionDeviceId as deviceId, AVG(s.Muscle) as MuscleAvg, System.TimeStamp AS EndTime
+INTO OutNotice
+FROM sensor s TIMESTAMP BY MeasuredTime
+GROUP BY TUMBLINGWINDOW(second, 5) , IoTHub.ConnectionDeviceId
+HAVING MuscleAvg > 100
