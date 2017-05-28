@@ -63,7 +63,7 @@ namespace UWPArduino2017
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             // IoT Hubに接続するための接続先とセキュリティ情報
-            string cs = "<< Azure IoT Hub Connection String for Device Id";
+            string cs = "<< Azure IoT Hub Connection String for Device Id >>";
             var client = DeviceClient.CreateFromConnectionString(cs, TransportType.Mqtt);
             await client.OpenAsync();
             await client.SetMethodHandlerAsync("Alert", AlertMethodHandler, client);
